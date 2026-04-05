@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirtan Adhikari — Geotechnical Engineer | Toronto</title>
+<meta name="description" content="Engineering portfolio, technical articles, and Python-based numerical analysis by Kirtan Adhikari — P.Eng. Candidate and geotechnical engineering professional in Toronto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d1b2a;--navy2:#162233;--navy3:#1e3148;
+  --gold:#c9a84c;--gold2:#e8c96d;--gold3:#f5e4a8;
+  --off:#f7f5f0;--mid:#e8e4d8;--white:#ffffff;
+  --text:#1c1c1c;--muted:#6b7280;--slate:#4a5568;
+  --radius:10px;--radius-lg:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);font-size:16px;line-height:1.7}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(13,27,42,0.97);backdrop-filter:blur(8px);padding:0 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.15)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold2);padding:16px 0;letter-spacing:0.5px}
+.nav-links{display:flex;gap:0}
+.nav-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;padding:20px 16px;border-bottom:2px solid transparent;transition:all 0.2s}
+.nav-links a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* HERO */
+.hero{background:var(--navy);min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;overflow:hidden}
+.hero-left{padding:80px 5% 80px 8%;position:relative}
+.hero-left::after{content:'';position:absolute;right:-1px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.3),transparent)}
+.hero-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold)}
+.hero-name{font-family:'Playfair Display',serif;font-size:58px;font-weight:700;color:#fff;line-height:1.05;margin-bottom:16px}
+.hero-name em{color:var(--gold2);font-style:italic}
+.hero-tagline{font-size:16px;color:rgba(255,255,255,0.55);font-weight:300;margin-bottom:36px;line-height:1.8;max-width:420px}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:13px 28px;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.5px;transition:all 0.2s}
+.btn-primary:hover{background:var(--gold2)}
+.btn-ghost{border:1px solid rgba(201,168,76,0.4);color:var(--gold2);padding:13px 28px;border-radius:var(--radius);font-size:13px;font-weight:400;text-decoration:none;letter-spacing:0.5px;transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{padding:80px 8% 80px 5%;display:flex;flex-direction:column;gap:20px}
+.hero-stat-card{background:rgba(255,255,255,0.04);border:0.5px solid rgba(201,168,76,0.15);border-radius:var(--radius-lg);padding:22px 26px;transition:all 0.25s}
+.hero-stat-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(201,168,76,0.35)}
+.hsc-num{font-family:'Playfair Display',serif;font-size:36px;color:var(--gold);font-weight:700}
+.hsc-label{font-size:13px;color:rgba(255,255,255,0.7);margin-top:2px}
+.hsc-sub{font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.hero-badge{padding:5px 14px;border:0.5px solid rgba(201,168,76,0.3);border-radius:20px;font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.5px}
+
+/* SECTIONS SHARED */
+section{padding:90px 8%}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';width:24px;height:1px;background:var(--gold)}
+.section-title{font-family:'Playfair Display',serif;font-size:38px;color:var(--navy);font-weight:400;line-height:1.2;margin-bottom:50px}
+.section-title span{color:var(--gold);font-style:italic}
+
+/* ABOUT STRIP */
+.about-strip{background:var(--navy2);color:#fff;padding:70px 8%;display:grid;grid-template-columns:1fr 2px 1fr 2px 1fr;gap:50px;align-items:start}
+.about-divider{background:rgba(201,168,76,0.2);align-self:stretch}
+.about-col-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500}
+.about-col-text{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.9}
+
+/* PROJECTS GRID */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.project-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:0.5px solid #e0ddd5;transition:transform 0.25s,box-shadow 0.25s}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
+.project-card.featured{grid-column:span 2}
+.pc-header{background:var(--navy);padding:32px;position:relative;overflow:hidden}
+.pc-header::after{content:'';position:absolute;bottom:-30px;right:-30px;width:120px;height:120px;border-radius:50%;border:1px solid rgba(201,168,76,0.1)}
+.pc-cat{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500}
+.pc-title{font-family:'Playfair Display',serif;font-size:22px;color:#fff;font-weight:400;line-height:1.3}
+.pc-body{padding:28px 32px}
+.pc-desc{font-size:14px;color:var(--slate);line-height:1.8;margin-bottom:20px}
+.pc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.pc-tag{padding:4px 12px;background:var(--off);border-radius:20px;font-size:11px;color:var(--muted)}
+.pc-link{font-size:12px;font-weight:500;color:var(--gold);text-decoration:none;letter-spacing:0.5px;display:inline-flex;align-items:center;gap:6px}
+.pc-link::after{content:'→'}
+.pc-link:hover{color:var(--navy)}
+
+/* ARTICLES */
+.articles-section{background:var(--white)}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.article-card{border:0.5px solid #e0ddd5;border-radius:var(--radius-lg);overflow:hidden;transition:transform 0.2s}
+.article-card:hover{transform:translateY(-3px)}
+.ac-top{background:var(--navy3);padding:24px;min-height:100px;display:flex;flex-direction:column;justify-content:flex-end}
+.ac-category{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:500}
+.ac-title{font-family:'Playfair Display',serif;font-size:17px;color:#fff;line-height:1.35}
+.ac-body{padding:20px 22px;background:#fff}
+.ac-preview{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:16px}
+.ac-meta{font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
+.ac-tag{padding:3px 10px;background:var(--off);border-radius:20px;font-size:10px;color:var(--muted)}
+
+/* PYTHON / CODE SECTION */
+.code-section{background:var(--navy)}
+.code-section .section-title{color:#fff}
+.code-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.code-card{background:rgba(255,255,255,0.04);border:0.5px solid rgba(201,168,76,0.15);border-radius:var(--radius-lg);overflow:hidden}
+.code-card-header{padding:20px 24px;border-bottom:0.5px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center}
+.code-card-title{font-size:14px;font-weight:500;color:#fff}
+.code-lang{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:3px 10px;border:0.5px solid rgba(201,168,76,0.3);border-radius:20px}
+.code-snippet{padding:20px 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,0.65);line-height:1.9;background:rgba(0,0,0,0.2)}
+.code-snippet .kw{color:var(--gold2)}
+.code-snippet .fn{color:#7ec8e3}
+.code-snippet .cm{color:rgba(255,255,255,0.3);font-style:italic}
+.code-snippet .str{color:#a8d8a8}
+.code-card-footer{padding:14px 24px;font-size:12px;color:rgba(255,255,255,0.35);border-top:0.5px solid rgba(255,255,255,0.06)}
+
+/* SKILLS STRIP */
+.skills-strip{background:var(--mid);padding:70px 8%}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.skill-group{background:var(--white);border-radius:var(--radius);padding:24px}
+.sg-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--mid)}
+.sg-pills{display:flex;flex-direction:column;gap:7px}
+.sg-pill{font-size:12px;color:var(--slate);padding:5px 0;display:flex;align-items:center;gap:8px}
+.sg-pill::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* CERTIFICATIONS */
+.cert-section{background:var(--white)}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cert-card{border:0.5px solid #e0ddd5;border-radius:var(--radius-lg);padding:32px;border-top:3px solid var(--gold);transition:box-shadow 0.2s}
+.cert-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.07)}
+.cert-status-dot{width:8px;height:8px;border-radius:50%;background:#f59e0b;display:inline-block;margin-right:6px}
+.cert-status-dot.active{background:#10b981}
+.cert-name{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:400;margin:14px 0 8px}
+.cert-body{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.cert-progress{background:var(--off);border-radius:20px;height:4px;overflow:hidden;margin-top:16px}
+.cert-bar{height:100%;background:linear-gradient(to right,var(--gold),var(--gold2));border-radius:20px}
+
+/* PUBLICATIONS */
+.pub-section{background:var(--off)}
+.pub-list{display:flex;flex-direction:column;gap:0}
+.pub-item{padding:28px 0;border-bottom:0.5px solid var(--mid);display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start}
+.pub-year{font-family:'Playfair Display',serif;font-size:26px;color:var(--gold);font-weight:400}
+.pub-title{font-size:15px;font-weight:500;color:var(--navy);line-height:1.55;margin-bottom:6px}
+.pub-meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+.pub-cite-pill{display:inline-block;padding:3px 12px;background:var(--navy);color:var(--gold2);border-radius:20px;font-size:11px}
+
+/* FOOTER */
+footer{background:var(--navy);padding:60px 8% 40px;color:rgba(255,255,255,0.4)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:50px}
+.footer-name{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold2);margin-bottom:10px}
+.footer-desc{font-size:13px;line-height:1.8}
+.footer-col-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:13px;transition:color 0.2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{border-top:0.5px solid rgba(255,255,255,0.08);padding-top:24px;font-size:12px;display:flex;justify-content:space-between}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-left>*{animation:fadeUp 0.6s ease both}
+.hero-eyebrow{animation-delay:0.1s}
+.hero-name{animation-delay:0.2s}
+.hero-tagline{animation-delay:0.3s}
+.hero-cta-row{animation-delay:0.4s}
+.hero-badges{animation-delay:0.5s}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Kirtan Adhikari</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#articles">Articles</a>
+    <a href="#python">Python</a>
+    <a href="#publications">Research</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Geotechnical Engineer · Toronto</div>
+    <h1 class="hero-name">Kirtan<br><em>Adhikari</em></h1>
+    <p class="hero-tagline">P.Eng. Candidate bridging rigorous geotechnical analysis, hands-on field inspection, and computational engineering across the Greater Toronto Area.</p>
+    <div class="hero-cta-row">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#articles" class="btn-ghost">Read Articles</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge">OACETT Associate</span>
+      <span class="hero-badge">IEPPE Passed</span>
+      <span class="hero-badge">P.Eng. Candidate</span>
+      <span class="hero-badge">67 Research Citations</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-card">
+      <div class="hsc-num">5+</div>
+      <div class="hsc-label">Years of engineering experience</div>
+      <div class="hsc-sub">Spanning Bhutan and Canada</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hsc-num">GTA-wide</div>
+      <div class="hsc-label">Active construction inspection</div>
+      <div class="hsc-sub">Toronto · Oshawa · Caledon · East Gwillimbury</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hsc-num">$900k</div>
+      <div class="hsc-label">Project supervised as Construction Engineer</div>
+      <div class="hsc-sub">Conventional Hall, CST Bhutan</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip" id="about">
+  <div>
+    <div class="about-col-label">Who I Am</div>
+    <div class="about-col-text">Civil engineer with deep roots in geotechnical field work, construction supervision, and applied numerical analysis. Currently working as Lab & Field Technician at Toronto Inspection Ltd. while advancing toward P.Eng. licensure with PEO.</div>
+  </div>
+  <div class="about-divider"></div>
+  <div>
+    <div class="about-col-label">What I Do</div>
+    <div class="about-col-text">I test soils, inspect structures, model slopes, and write Python scripts to automate and visualize geotechnical calculations — bringing computational thinking to field engineering problems.</div>
+  </div>
+  <div class="about-divider"></div>
+  <div>
+    <div class="about-col-label">Why This Site</div>
+    <div class="about-col-text">Engineering knowledge compounds when shared. Every article, script, and project write-up here is a real problem I solved — documented so other engineers, hiring managers, and PEO assessors can see exactly how I think.</div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected Work</div>
+  <div class="section-title">Projects & <span>Field Experience</span></div>
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div class="pc-header">
+        <div class="pc-cat">Construction Management · Bhutan · CAD $900k</div>
+        <div class="pc-title">Conventional Hall — College of Science and Technology</div>
+      </div>
+      <div class="pc-body">
+        <p class="pc-desc">Appointed as Construction Engineer overseeing the full lifecycle of a large convention hall funded by the Government of India. Managed earthworks planning, PLAXIS-based settlement and displacement analysis, shallow foundation supervision, reinforcement inspection, e-GP procurement, and multi-stakeholder coordination over the entire construction duration.</p>
+        <div class="pc-tags">
+          <span class="pc-tag">PLAXIS</span><span class="pc-tag">AutoCAD</span><span class="pc-tag">Shallow Foundations</span>
+          <span class="pc-tag">e-GP Procurement</span><span class="pc-tag">RCC Structures</span><span class="pc-tag">Quantity Takeoff</span>
+        </div>
+        <a href="#projects" class="pc-link">Coming soon ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="pc-header">
+        <div class="pc-cat">Research Fellowship · CDRI 2021-22</div>
+        <div class="pc-title">Disaster Resilience on Hilly Slopes of Bhutan</div>
+      </div>
+      <div class="pc-body">
+        <p class="pc-desc">CDRI-funded research fellowship identifying landslide triggers on urban slopes, recommending safe excavation limits, and proposing construction best practices. Conducted electrical resistivity, DCPT, triaxial tests, and slope stability analysis using GeoStudio.</p>
+        <div class="pc-tags">
+          <span class="pc-tag">GeoStudio</span><span class="pc-tag">Resistivity</span><span class="pc-tag">DCPT</span><span class="pc-tag">Slope Stability</span>
+        </div>
+        <a href="#projects" class="pc-link">Coming soon ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="pc-header">
+        <div class="pc-cat">Geotechnical Analysis · Toronto Inspection Ltd.</div>
+        <div class="pc-title">Slope Stability & Shoring — GTA Sites</div>
+      </div>
+      <div class="pc-body">
+        <p class="pc-desc">SLOPE/W analyses under differential groundwater regimes with static and seismic loading. Shoring analysis in ADONIS 3.9 and PLAXIS evaluating total displacement, bending moments, and tieback bond forces for urban excavations.</p>
+        <div class="pc-tags">
+          <span class="pc-tag">SLOPE/W</span><span class="pc-tag">ADONIS 3.9</span><span class="pc-tag">PLAXIS</span><span class="pc-tag">gINT</span>
+        </div>
+        <a href="#projects" class="pc-link">Coming soon ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="pc-header">
+        <div class="pc-cat">OACETT Certification · Technical Report</div>
+        <div class="pc-title">Effective Stresses & Differential Foundation Settlement</div>
+      </div>
+      <div class="pc-body">
+        <p class="pc-desc">Technical report submitted for CET designation — covering 2D variation of effective stresses and their implications on differential foundation settlement in geotechnical design practice.</p>
+        <div class="pc-tags">
+          <span class="pc-tag">OACETT IEPPE</span><span class="pc-tag">Effective Stress</span><span class="pc-tag">Settlement Analysis</span>
+        </div>
+        <a href="#projects" class="pc-link">Coming soon ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="articles-section" id="articles">
+  <div class="section-label">Knowledge Base</div>
+  <div class="section-title">Engineering <span>Articles</span></div>
+  <div class="articles-grid">
+
+    <div class="article-card">
+      <div class="ac-top">
+        <div class="ac-category">Geotechnical Testing</div>
+        <div class="ac-title">What Nuclear Density Testing Actually Tells You — and What It Doesn't</div>
+      </div>
+      <div class="ac-body">
+        <p class="ac-preview">A practical breakdown of nuclear density gauge results, how MDD and OMC relate to compaction acceptance, and the interpretation traps engineers fall into on-site.</p>
+        <div class="ac-meta"><span class="ac-tag">Field Practice</span><span>8 min read</span></div>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="ac-top">
+        <div class="ac-category">Slope Stability</div>
+        <div class="ac-title">Understanding Factor of Safety Contour Plots from SLOPE/W</div>
+      </div>
+      <div class="ac-body">
+        <p class="ac-preview">How to read FOS contour outputs, what the colour gradients mean, and how changing groundwater levels shift the critical slip surface — illustrated with real GTA site data.</p>
+        <div class="ac-meta"><span class="ac-tag">Analysis</span><span>10 min read</span></div>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="ac-top">
+        <div class="ac-category">Soil Classification</div>
+        <div class="ac-title">Reading Borehole Logs: A Field Technician's Annotated Guide</div>
+      </div>
+      <div class="ac-body">
+        <p class="ac-preview">Walking through a real borehole log prepared in gINT — soil descriptions, N-values, moisture content trends, and what each entry means for foundation design decisions.</p>
+        <div class="ac-meta"><span class="ac-tag">Fundamentals</span><span>12 min read</span></div>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="ac-top">
+        <div class="ac-category">Standards & Compliance</div>
+        <div class="ac-title">OPSS 1010 Explained: Granular A, B Type I & II in Practice</div>
+      </div>
+      <div class="ac-body">
+        <p class="ac-preview">A plain-language walkthrough of OPSS 1010 material compliance — what the grain size limits mean, how to read gradation curves, and common field failures and fixes.</p>
+        <div class="ac-meta"><span class="ac-tag">Standards</span><span>9 min read</span></div>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="ac-top">
+        <div class="ac-category">Concrete QA/QC</div>
+        <div class="ac-title">Slump, Air Content & Temperature: The Concrete QC Triangle</div>
+      </div>
+      <div class="ac-body">
+        <p class="ac-preview">Why all three tests must be taken together, how weather affects interpretation, and what to do when results fall outside CSA limits — with real field examples.</p>
+        <div class="ac-meta"><span class="ac-tag">QA/QC</span><span>7 min read</span></div>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="ac-top">
+        <div class="ac-category">Foundation Engineering</div>
+        <div class="ac-title">How Differential Settlement Happens — and How to Catch It Early</div>
+      </div>
+      <div class="ac-body">
+        <p class="ac-preview">From subsurface variability to effective stress changes — the mechanisms behind differential settlement, PLAXIS modelling approaches, and design recommendations from practice.</p>
+        <div class="ac-meta"><span class="ac-tag">Analysis</span><span>11 min read</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PYTHON / NUMERICAL -->
+<section class="code-section" id="python">
+  <div class="section-label" style="color:var(--gold)">Computational Engineering</div>
+  <div class="section-title">Python & <span>Numerical Methods</span></div>
+  <div class="code-grid">
+
+    <div class="code-card">
+      <div class="code-card-header">
+        <span class="code-card-title">Grain Size Distribution Plotter</span>
+        <span class="code-lang">Python</span>
+      </div>
+      <div class="code-snippet">
+<span class="cm"># Automated USCS gradation curve generator</span>
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+
+<span class="kw">def</span> <span class="fn">plot_gradation</span>(sieve_sizes, percent_passing,
+                   opss_limits=<span class="kw">None</span>):
+    fig, ax = plt.subplots(figsize=(<span class="str">10, 6</span>))
+    ax.<span class="fn">semilogx</span>(sieve_sizes, percent_passing,
+               <span class="str">'k-o'</span>, linewidth=<span class="str">2</span>, label=<span class="str">'Sample'</span>)
+    <span class="kw">if</span> opss_limits:
+        ax.<span class="fn">fill_between</span>(sieve_sizes, *opss_limits,
+                        alpha=<span class="str">0.15</span>, label=<span class="str">'OPSS Limits'</span>)
+    ax.<span class="fn">set_xlabel</span>(<span class="str">'Grain Size (mm)'</span>)
+    ax.<span class="fn">set_ylabel</span>(<span class="str">'% Finer by Weight'</span>)
+      </div>
+      <div class="code-card-footer">Generates OPSS-compliant gradation charts from lab data</div>
+    </div>
+
+    <div class="code-card">
+      <div class="code-card-header">
+        <span class="code-card-title">Settlement Calculator (Terzaghi)</span>
+        <span class="code-lang">Python</span>
+      </div>
+      <div class="code-snippet">
+<span class="cm"># 1D consolidation settlement — Terzaghi method</span>
+<span class="kw">def</span> <span class="fn">primary_settlement</span>(Cc, e0, H, sigma0, delta_sigma):
+    <span class="cm">"""
+    Cc: Compression index
+    e0: Initial void ratio
+    H:  Layer thickness (m)
+    """</span>
+    Sc = (Cc / (<span class="str">1</span> + e0)) * H * np.<span class="fn">log10</span>(
+        (sigma0 + delta_sigma) / sigma0
+    )
+    <span class="kw">return</span> Sc
+
+<span class="cm"># Time factor for degree of consolidation</span>
+<span class="kw">def</span> <span class="fn">time_factor</span>(U):
+    <span class="kw">if</span> U &lt;= <span class="str">0.6</span>:
+        <span class="kw">return</span> (np.pi / <span class="str">4</span>) * U**<span class="str">2</span>
+      </div>
+      <div class="code-card-footer">Consolidation settlement with time-dependent degree of consolidation</div>
+    </div>
+
+    <div class="code-card">
+      <div class="code-card-header">
+        <span class="code-card-title">Bearing Capacity (Meyerhof)</span>
+        <span class="code-lang">Python</span>
+      </div>
+      <div class="code-snippet">
+<span class="cm"># General bearing capacity — Meyerhof factors</span>
+<span class="kw">import</span> math
+
+<span class="kw">def</span> <span class="fn">bearing_capacity</span>(c, phi_deg, gamma, Df, B, L):
+    phi = math.<span class="fn">radians</span>(phi_deg)
+    Nq = math.<span class="fn">exp</span>(math.pi * math.<span class="fn">tan</span>(phi)) \
+         * math.<span class="fn">tan</span>(<span class="str">45</span> + phi_deg/<span class="str">2</span>)**<span class="str">2</span>
+    Nc = (Nq - <span class="str">1</span>) / math.<span class="fn">tan</span>(phi)
+    Ng = <span class="str">2</span> * (Nq + <span class="str">1</span>) * math.<span class="fn">tan</span>(phi)
+    qu = c*Nc + gamma*Df*Nq + <span class="str">0.5</span>*gamma*B*Ng
+    <span class="kw">return</span> qu, qu/<span class="str">3</span>  <span class="cm"># ultimate, allowable (FOS=3)</span>
+      </div>
+      <div class="code-card-footer">Ultimate and allowable bearing capacity with shape/depth factors</div>
+    </div>
+
+    <div class="code-card">
+      <div class="code-card-header">
+        <span class="code-card-title">Effective Stress Profile Plotter</span>
+        <span class="code-lang">Python</span>
+      </div>
+      <div class="code-snippet">
+<span class="cm"># 2D effective stress variation with depth</span>
+<span class="kw">def</span> <span class="fn">effective_stress_profile</span>(layers, gwt_depth):
+    <span class="cm">"""
+    layers: list of (thickness, gamma_sat, gamma_dry)
+    gwt_depth: groundwater table depth (m)
+    """</span>
+    depths, sigma_v, u, sigma_eff = [], [], [], []
+    z = <span class="str">0</span>
+    <span class="kw">for</span> h, g_sat, g_dry <span class="kw">in</span> layers:
+        gamma = g_dry <span class="kw">if</span> z &lt; gwt_depth <span class="kw">else</span> g_sat
+        <span class="cm"># pore pressure and effective stress computed</span>
+        <span class="fn">...</span>
+      </div>
+      <div class="code-card-footer">Directly related to OACETT technical report on differential settlement</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="skills-strip">
+  <div class="section-label">Technical Toolkit</div>
+  <div class="section-title" style="margin-bottom:36px">Skills & <span>Tools</span></div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="sg-title">Engineering Software</div>
+      <div class="sg-pills">
+        <span class="sg-pill">PLAXIS 2D/3D</span>
+        <span class="sg-pill">GeoStudio (SLOPE/W)</span>
+        <span class="sg-pill">ADONIS 3.9</span>
+        <span class="sg-pill">gINT</span>
+        <span class="sg-pill">AutoCAD</span>
+        <span class="sg-pill">MS Project</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Field & Lab Testing</div>
+      <div class="sg-pills">
+        <span class="sg-pill">Borehole Drilling & Logging</span>
+        <span class="sg-pill">Nuclear Density Testing</span>
+        <span class="sg-pill">Concrete QA/QC</span>
+        <span class="sg-pill">Atterberg Limits</span>
+        <span class="sg-pill">Hydrometer Analysis</span>
+        <span class="sg-pill">DCPT & Resistivity</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Standards & Codes</div>
+      <div class="sg-pills">
+        <span class="sg-pill">OPSS 1010</span>
+        <span class="sg-pill">CSA Standards</span>
+        <span class="sg-pill">ASTM Methods</span>
+        <span class="sg-pill">USCS Classification</span>
+        <span class="sg-pill">MTO Standards</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Computation</div>
+      <div class="sg-pills">
+        <span class="sg-pill">Python (NumPy, Matplotlib)</span>
+        <span class="sg-pill">Numerical Methods</span>
+        <span class="sg-pill">Settlement Analysis</span>
+        <span class="sg-pill">Bearing Capacity Calc.</span>
+        <span class="sg-pill">Data Visualization</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<section class="cert-section">
+  <div class="section-label">Credentials</div>
+  <div class="section-title">Certifications & <span>Designations</span></div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div><span class="cert-status-dot"></span><span style="font-size:12px;color:var(--muted)">In Progress since May 2024</span></div>
+      <div class="cert-name">P.Eng. — Professional Engineers Ontario</div>
+      <div class="cert-body">Cleared 3 PEO technical examinations. NPPE scheduled for 2026. Currently compiling engineering experience documentation based on Competencies-Based Assessment (CBA) framework.</div>
+      <div class="cert-progress"><div class="cert-bar" style="width:65%"></div></div>
+    </div>
+    <div class="cert-card">
+      <div><span class="cert-status-dot active"></span><span style="font-size:12px;color:var(--muted)">IEPPE Cleared May 2025</span></div>
+      <div class="cert-name">CET — OACETT</div>
+      <div class="cert-body">IEPPE examination passed. Technical report submitted: "2D Variation of Effective Stresses and its Implication on Differential Foundation Settlement." CET designation expected within 2–4 months.</div>
+      <div class="cert-progress"><div class="cert-bar" style="width:88%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="pub-section" id="publications">
+  <div class="section-label">Academic Research</div>
+  <div class="section-title">Publications <span>& Research</span></div>
+  <div style="margin-bottom:32px;display:flex;gap:32px">
+    <div><span style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold)">67</span><span style="font-size:13px;color:var(--muted);margin-left:8px">Total Citations</span></div>
+    <div><span style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold)">4</span><span style="font-size:13px;color:var(--muted);margin-left:8px">h-index</span></div>
+    <div><span style="font-family:'Playfair Display',serif;font-size:28px;color:var(--gold)">4</span><span style="font-size:13px;color:var(--muted);margin-left:8px">Peer-reviewed papers</span></div>
+  </div>
+  <div class="pub-list">
+    <div class="pub-item">
+      <div class="pub-year">2023</div>
+      <div>
+        <div class="pub-title">Assessment of potential present and future glacial lake outburst flood hazard in the Hunza valley: A case study of Shipser and Mochowar glacier</div>
+        <div class="pub-meta">H Singh, D Varade, MVW de Vries, K Adhikari et al. · Science of the Total Environment 868, 161717</div>
+        <span class="pub-cite-pill">46 citations</span>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2022</div>
+      <div>
+        <div class="pub-title">Rainfall and rainy days trend and ENSO phenomena in Himalayan Kingdom of Bhutan</div>
+        <div class="pub-meta">V Sharma, K Adhikari · Acta Geophysica 70(4), 1855–1869</div>
+        <span class="pub-cite-pill">7 citations</span>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2020</div>
+      <div>
+        <div class="pub-title">Performance evaluation of satellite precipitation estimation with ground monitoring stations over southern Himalayas in Bhutan</div>
+        <div class="pub-meta">K Adhikari, Y Choden, T Cheki, L Gurung et al. · Acta Geophysica 68(3), 933–943</div>
+        <span class="pub-cite-pill">4 citations</span>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2019</div>
+      <div>
+        <div class="pub-title">Forecasting landslide in Chukha from index properties of soil — research to policy making</div>
+        <div class="pub-meta">N Chettri, R Sarkar, K Adhikari, IB Chettri · World Scientific News, 227–248</div>
+        <span class="pub-cite-pill">6 citations</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div>
+      <div class="footer-name">Kirtan Adhikari</div>
+      <div class="footer-desc">P.Eng. Candidate · OACETT Associate · Lab & Field Technician at Toronto Inspection Ltd.<br>Open to geotechnical engineering and construction inspection opportunities across the GTA.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <div class="footer-links">
+        <a href="#projects">Projects</a>
+        <a href="#articles">Articles</a>
+        <a href="#python">Python Code</a>
+        <a href="#publications">Publications</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-links">
+        <a href="mailto:kirtan.adhikari1@gmail.com">kirtan.adhikari1@gmail.com</a>
+        <a href="tel:6472129158">(647) 212-9158</a>
+        <a href="https://www.linkedin.com/in/kirtan-adhikari-50094a188/" target="_blank">LinkedIn Profile</a>
+        <a href="https://scholar.google.fr/citations?hl=en&user=ovw1P94AAAAJ" target="_blank">Google Scholar</a>
+        <a href="https://github.com/kirtan29" target="_blank">GitHub — kirtan29</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-botto
